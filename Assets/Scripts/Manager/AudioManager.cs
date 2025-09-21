@@ -3,8 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    [SerializeField] AudioSource[] audioSources;
-    void Awake()
+    [SerializeField] private AudioSource[] audioSources;
+    private void Awake()
     {
         if (instance == null) { instance = this; }
         else { Destroy(gameObject); }

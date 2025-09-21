@@ -1,32 +1,32 @@
 using UnityEngine;
 
-public class PlayerControlller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //Input
-    float verticalInput;
-    float horizontalInput;
-    float horizontalTiltInput;
+    private float verticalInput;
+    private float horizontalInput;
+    private float horizontalTiltInput;
 
     //Movement
-    [SerializeField] float speed;
-    [SerializeField] float xLimitLeft;
-    [SerializeField] float xLimitRight;
-    [SerializeField] float zLimitDown;
-    [SerializeField] float zLimitUp;
-    [SerializeField] float tilt;
-    [SerializeField] Rigidbody componentRigidbody;
+    [SerializeField] public float speed;
+    [SerializeField] private float xLimitLeft;
+    [SerializeField] private float xLimitRight;
+    [SerializeField] private float zLimitDown;
+    [SerializeField] private float zLimitUp;
+    [SerializeField] private float tilt;
+    [SerializeField] private Rigidbody componentRigidbody;
 
     //Laser
-    [SerializeField] GameObject laserPrefab;
-    [SerializeField] GameObject laserSpawn;
-    [SerializeField] float fireDelay;
-    float lastShotTime;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private GameObject laserSpawn;
+    [SerializeField] public float fireDelay;
+    private float lastShotTime;
 
-    void Start()
+    private void Start()
     {
         lastShotTime = -fireDelay;
     }
-    void Update()
+    private void Update()
     {
         //gestion du mouvement
         verticalInput = Input.GetAxis("Vertical");

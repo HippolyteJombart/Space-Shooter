@@ -6,23 +6,23 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float life = 1;
-    private int point;
+    public int point;
     private int pointToLife;
     public bool inPause = false;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject gameScreen;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject dieScreen;
-    [SerializeField] TextMeshProUGUI scoreTextInGame;
-    [SerializeField] TextMeshProUGUI scoreTextInPause;
-    [SerializeField] TextMeshProUGUI scoreTextInDie;
+    [SerializeField] private TextMeshProUGUI scoreTextInGame;
+    [SerializeField] private TextMeshProUGUI scoreTextInPause;
+    [SerializeField] private TextMeshProUGUI scoreTextInDie;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null) { instance = this; }
         else { Destroy(gameObject); }
     }
-    void Start()
+    private void Start()
     {
         dieScreen.SetActive(false);
         pauseScreen.SetActive(false);
@@ -37,20 +37,22 @@ public class GameManager : MonoBehaviour
             pointToLife -= 2000;
             life += 1;
         }
-        scoreTextInGame.text = "Score : " + point.ToString() + "\n" + "Life : " + life.ToString();
+        scoreTextInGame.text = "Score : " + point + "\n" + "Life : " + life;
     }
     public void LoseLife()
     {
         life -= 1;
         if (life == 0)
         {
-            scoreTextInDie.text = "Score : " + point.ToString();
+            scoreTextInGame.text = "Score : " + point + "\n" + "Life : " + life;
+            scoreTextInDie.text = "Score : " + point;
             Destroy(player);
+            gameScreen.SetActive(false);
             dieScreen.SetActive(true);
         }
         else
         {
-            scoreTextInGame.text = "Score : " + point.ToString() + "\n" + "Life : " + life.ToString();            
+            scoreTextInGame.text = "Score : " + point + "\n" + "Life : " + life;
         }
     }
 
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        scoreTextInPause.text = "Score : " + point.ToString();
+        scoreTextInPause.text = "Score : " + point;
         inPause = true;
         Time.timeScale = 0;
         gameScreen.SetActive(false);

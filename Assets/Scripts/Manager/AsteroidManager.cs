@@ -3,16 +3,20 @@ using System.Collections;
 
 public class AsteroidManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] asteroids;
-    [SerializeField] float delayAsteroid;
-    void Start()
+    [SerializeField] private GameObject[] asteroids;
+    [SerializeField] public float delayAsteroid;
+    private void Start()
     {
         StartCoroutine(SpawnAsteroid());
     }
-    IEnumerator SpawnAsteroid()
+
+    private IEnumerator SpawnAsteroid()
     {
-        Instantiate(asteroids[Random.Range(0, asteroids.Length)], new Vector3(Random.Range(-2.5f, 2.5f), 0, 12), Quaternion.identity);
-        yield return new WaitForSeconds(delayAsteroid);
-        StartCoroutine(SpawnAsteroid());
+        while (true)
+        {
+            Instantiate(asteroids[Random.Range(0, asteroids.Length)], new Vector3(Random.Range(-2.5f, 2.5f), 0, 12),
+                Quaternion.identity);
+            yield return new WaitForSeconds(delayAsteroid);
+        }
     }
 }

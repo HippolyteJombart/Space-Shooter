@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AutoDestruct : MonoBehaviour
 {
-    [SerializeField] float lifetime;
-    void Start()
+    [SerializeField] private float lifetime;
+    private void Start()
     {
         Destroy(gameObject, lifetime);
     }

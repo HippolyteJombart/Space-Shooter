@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class MoveBack : MonoBehaviour
 {
-    void Update()
+    [SerializeField] private float limitPositionZ;
+    [SerializeField] private float backPositionZ;
+    private void Update()
     {
-        if (transform.localPosition.z <= -20f)
+        if (transform.localPosition.z <= limitPositionZ)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 20f);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, backPositionZ);
         }
     }
 }
