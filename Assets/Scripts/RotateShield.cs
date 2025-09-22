@@ -3,8 +3,8 @@ using System.Collections;
 
 public class RotateShield : MonoBehaviour
 {
-    [SerializeField] public GameObject[] shieldSprites;
-    private float delayRotation = 0.1f;
+    [SerializeField] private GameObject[] shieldSprites;
+    [SerializeField] private float delayRotation;
 
     private void Start()
     {

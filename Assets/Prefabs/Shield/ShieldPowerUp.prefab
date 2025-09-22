@@ -270,11 +270,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6284054831561635713}
-  - component: {fileID: 8658755992718823292}
-  - component: {fileID: 8833534540222961392}
-  - component: {fileID: 1550648308528057864}
-  - component: {fileID: 257623392011374600}
   - component: {fileID: 1405292324012021210}
+  - component: {fileID: 8658755992718823292}
+  - component: {fileID: 8513269323752938787}
+  - component: {fileID: 8833534540222961392}
+  - component: {fileID: 257623392011374600}
+  - component: {fileID: 1550648308528057864}
   m_Layer: 0
   m_Name: ShieldPowerUp
   m_TagString: PowerUp
@@ -303,6 +304,27 @@ Transform:
   - {fileID: 6231922672669519258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!135 &1405292324012021210
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972716426888137216}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.44336852
+  m_Center: {x: 0, y: 8.3396535e-17, z: 0.056631476}
 --- !u!54 &8658755992718823292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -330,6 +352,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &8513269323752938787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972716426888137216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61c02085334149488e088efe181c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 0}
 --- !u!114 &8833534540222961392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,19 +379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   direction: {x: 0, y: 0, z: -1}
---- !u!114 &1550648308528057864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5972716426888137216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f55b17832216b147bdf73f2af7da719, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 30
 --- !u!114 &257623392011374600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,27 +398,20 @@ MonoBehaviour:
   - {fileID: 9095249405101638839}
   - {fileID: 5692179674860447777}
   - {fileID: 1491817435983995645}
---- !u!135 &1405292324012021210
-SphereCollider:
+  delayRotation: 0.1
+--- !u!114 &1550648308528057864
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5972716426888137216}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.44336852
-  m_Center: {x: 0, y: 8.3396535e-17, z: 0.056631476}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f55b17832216b147bdf73f2af7da719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30
 --- !u!1 &7103065864751813445
 GameObject:
   m_ObjectHideFlags: 0

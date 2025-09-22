@@ -194,3 +194,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidVfx: {fileID: 9037028656479030531, guid: 7466afd2133e6dd4fa299d8d88c81d85, type: 3}
   playerVfx: {fileID: 1476518405241735476, guid: 166129b5f933fe940b4262fa815f1b69, type: 3}
+  powerUp: {fileID: 5972716426888137216, guid: e903afe52487a8f4099adfdb4819400f, type: 3}
