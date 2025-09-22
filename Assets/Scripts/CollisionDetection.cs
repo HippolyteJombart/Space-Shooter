@@ -29,6 +29,10 @@ public class CollisionDetection : MonoBehaviour
             Destroy(collision.gameObject);
             Instantiate(playerVfx, collision.transform.position, Quaternion.identity);
         }
+        else if (collision.gameObject.CompareTag("PowerUp"))
+        {
+            return;
+        }
         Destroy(gameObject);
     }
 }
