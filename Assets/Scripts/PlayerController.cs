@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         //gestion du tir
         if (Input.GetKeyDown("space") && Time.time > lastShotTime + fireDelay && !GameManager.instance.inPause)
         {
-            Instantiate(laserPrefab, laserSpawn.transform.position, Quaternion.identity);
+            LaserManager.instance.PoolLaser();
             AudioManager.instance.ShootAudio();
             lastShotTime = Time.time;
         }

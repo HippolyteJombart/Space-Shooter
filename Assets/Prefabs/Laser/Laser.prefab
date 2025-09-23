@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1516476163390969858}
   - component: {fileID: 691984347789141328}
   - component: {fileID: 5872736285085507763}
-  - component: {fileID: 2211819976783323311}
+  - component: {fileID: 536248447222342568}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Lasers
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   direction: {x: 0, y: 0, z: 1}
---- !u!114 &2211819976783323311
+--- !u!114 &536248447222342568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8387619878084068491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f55b17832216b147bdf73f2af7da719, type: 3}
+  m_Script: {fileID: 11500000, guid: 003ab7ed8bbd5414999df1f95a864a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10

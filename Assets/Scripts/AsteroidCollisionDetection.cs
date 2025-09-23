@@ -21,7 +21,7 @@ public class AsteroidCollisionDetection : MonoBehaviour
             Instantiate(asteroidVfx, collision.transform.position, Quaternion.identity);
             GameManager.instance.AddPoint();
             AudioManager.instance.AsteroidsExplosionAudio();
-            Destroy(collision.gameObject);
+            LaserManager.instance.UnPoolLaser(collision.gameObject);
             if (Random.Range(0, 10) == 0)
             {
                 Instantiate(powerUp, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
