@@ -5,11 +5,16 @@ using System.Collections.Generic;
 public class LaserManager : MonoBehaviour
 {
     public static LaserManager instance;
+    
+    //Instantiate Laser
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private GameObject laserSpawn;
+    [SerializeField] private GameObject cloneLaserParent;
+    private int laserNumber = 50;
+    
+    //Pooling System
     private Queue<GameObject> queue = new Queue<GameObject>();
     private GameObject currentLaser;
-    private int laserNumber = 50;
     
     private void Awake()
     {
@@ -21,7 +26,7 @@ public class LaserManager : MonoBehaviour
     {
         for (int i = 0; i < laserNumber; i++)
         {
-            currentLaser = Instantiate(laserPrefab, laserSpawn.transform.position, Quaternion.identity);
+            currentLaser = Instantiate(laserPrefab, laserSpawn.transform.position, Quaternion.identity, cloneLaserParent.transform);
             queue.Enqueue(currentLaser);
             currentLaser.SetActive(false);
         }

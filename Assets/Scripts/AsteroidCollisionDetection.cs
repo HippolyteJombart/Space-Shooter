@@ -4,41 +4,46 @@ using Random = UnityEngine.Random;
 
 public class AsteroidCollisionDetection : MonoBehaviour
 {
-    [SerializeField] private GameObject asteroidVfx;
-    [SerializeField] private GameObject playerVfx;
-    [SerializeField] private GameObject powerUp;
+    //Shield and Power up
+    [SerializeField] private int chanceOfPowerUp;
     private GameObject shield;
+    private GameObject powerUp;
     
     private void OnCollisionEnter(Collision collision)
     {
         shield = GameObject.FindGameObjectWithTag("Shield");
+        powerUp = GameObject.FindGameObjectWithTag("PowerUp");
         
         if (collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(playerVfx, collision.transform.position, Quaternion.identity);
+            if (shield != null)
+            {
+                return;
+            }
+            PlayerVfxManager.instance.PoolVfx(gameObject);
             GameManager.instance.LoseLife();
             AudioManager.instance.PlayerExplosionAudio();
         }
         else if (collision.gameObject.CompareTag("Lasers"))
         {
-            Instantiate(asteroidVfx, collision.transform.position, Quaternion.identity);
+            AsteroidVfxManager.instance.PoolVfx(gameObject);
             GameManager.instance.AddPoint();
             AudioManager.instance.AsteroidsExplosionAudio();
             LaserManager.instance.UnPoolLaser(collision.gameObject);
-            if (Random.Range(0, 10) == 0 && shield == null)
+            if (Random.Range(0, 100/chanceOfPowerUp) == 0 && shield == null && powerUp == null)
             {
                 ShieldManager.instance.PoolShieldPowerUp(gameObject);
             }
         }
         else if (collision.gameObject.CompareTag("Asteroids"))
         {
-            Instantiate(asteroidVfx, collision.transform.position, Quaternion.identity);
+            AsteroidVfxManager.instance.PoolVfx(gameObject);
             AudioManager.instance.AsteroidsExplosionAudio();
         }
         else if (collision.gameObject.CompareTag("Shield"))
         {
             collision.gameObject.SetActive(false);
-            Instantiate(playerVfx, collision.transform.position, Quaternion.identity);
+            PlayerVfxManager.instance.PoolVfx(gameObject);
         }
         else if (collision.gameObject.CompareTag("PowerUp"))
         {

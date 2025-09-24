@@ -28,6 +28,12 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Movement();
+        Shoot();
+    }
+
+    private void Movement()
+    {
         //gestion du mouvement
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
@@ -47,6 +53,10 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = new Vector3(positionX, 0, positionZ);
         transform.position = newPosition;
 
+    }
+
+    private void Shoot()
+    {
         //gestion du tir
         if (Input.GetKeyDown("space") && Time.time > lastShotTime + fireDelay && !GameManager.instance.inPause)
         {

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AutoRotate : MonoBehaviour
 {
-    private Vector3 rotation;
+    private float rotationLimit = 2f;
     private void Start()
     {
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-2f,2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-rotationLimit,rotationLimit), Random.Range(-rotationLimit, rotationLimit), Random.Range(-rotationLimit, rotationLimit));
     }
 }

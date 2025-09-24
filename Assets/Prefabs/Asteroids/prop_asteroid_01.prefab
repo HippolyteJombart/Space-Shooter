@@ -122,7 +122,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7887670371349467399}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f55b17832216b147bdf73f2af7da719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 60
+  lifetime: 20
 --- !u!114 &2485281737336303601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +192,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e108edf7a6618e14382640c1e9526093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidVfx: {fileID: 9037028656479030531, guid: 7466afd2133e6dd4fa299d8d88c81d85, type: 3}
-  playerVfx: {fileID: 1476518405241735476, guid: 166129b5f933fe940b4262fa815f1b69, type: 3}
-  powerUp: {fileID: 5972716426888137216, guid: e903afe52487a8f4099adfdb4819400f, type: 3}
+  chanceOfPowerUp: 5

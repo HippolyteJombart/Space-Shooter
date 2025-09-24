@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
-public class AutoDisable : MonoBehaviour
+public class AutoDisableLaser: MonoBehaviour
 {
     [SerializeField] private float lifetime;
-    
+
     private void OnEnable()
     {
         StartCoroutine(Disable());

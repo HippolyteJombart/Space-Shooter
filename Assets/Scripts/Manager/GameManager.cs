@@ -5,18 +5,29 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    
+    //Player
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject shield;
+    
+    //Point and Life
     public float life = 1;
     public int point;
     private int pointToLife;
-    public bool inPause = false;
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject shield;
+    private int pointToGetExtraLife = 2000;
+    
+    //Screen
     [SerializeField] private GameObject gameScreen;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject dieScreen;
+    
+    //Text
     [SerializeField] private TextMeshProUGUI scoreTextInGame;
     [SerializeField] private TextMeshProUGUI scoreTextInPause;
     [SerializeField] private TextMeshProUGUI scoreTextInDie;
+    
+    //Game State
+    public bool inPause = false;
 
     private void Awake()
     {
@@ -35,11 +46,8 @@ public class GameManager : MonoBehaviour
     {
         point += i;
         pointToLife += i;
-        if (pointToLife >= 2000)
-        {
-            pointToLife -= 2000;
-            life += 1;
-        }
+        life += pointToLife / pointToGetExtraLife;
+        pointToLife %= pointToGetExtraLife;
         scoreTextInGame.text = "Score : " + point + "\n" + "Life : " + life;
     }
     
