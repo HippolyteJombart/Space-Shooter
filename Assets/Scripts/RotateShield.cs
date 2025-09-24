@@ -6,8 +6,12 @@ public class RotateShield : MonoBehaviour
     [SerializeField] private GameObject[] shieldSprites;
     [SerializeField] private float delayRotation;
 
-    private void Start()
+    private void OnEnable()
     {
+        foreach (GameObject sprite in shieldSprites)
+        {
+            sprite.SetActive(false);
+        }
         StartCoroutine((RotationShield()));
     }
     private IEnumerator RotationShield()

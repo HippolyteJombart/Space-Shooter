@@ -7,9 +7,12 @@ public class AsteroidCollisionDetection : MonoBehaviour
     [SerializeField] private GameObject asteroidVfx;
     [SerializeField] private GameObject playerVfx;
     [SerializeField] private GameObject powerUp;
+    private GameObject shield;
     
     private void OnCollisionEnter(Collision collision)
     {
+        shield = GameObject.FindGameObjectWithTag("Shield");
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             Instantiate(playerVfx, collision.transform.position, Quaternion.identity);
@@ -22,9 +25,9 @@ public class AsteroidCollisionDetection : MonoBehaviour
             GameManager.instance.AddPoint();
             AudioManager.instance.AsteroidsExplosionAudio();
             LaserManager.instance.UnPoolLaser(collision.gameObject);
-            if (Random.Range(0, 10) == 0)
+            if (Random.Range(0, 10) == 0 && shield == null)
             {
-                Instantiate(powerUp, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+                ShieldManager.instance.PoolShieldPowerUp(gameObject);
             }
         }
         else if (collision.gameObject.CompareTag("Asteroids"))
