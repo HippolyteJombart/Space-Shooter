@@ -9,8 +9,7 @@ public class LaserManager : MonoBehaviour
     [SerializeField] private GameObject laserSpawn;
     private Queue<GameObject> queue = new Queue<GameObject>();
     private GameObject currentLaser;
-    private int laserNumber = 2;
-
+    private int laserNumber = 50;
     
     private void Awake()
     {

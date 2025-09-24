@@ -5,7 +5,7 @@ public class ShieldCollisionDetection : MonoBehaviour
 {
     [SerializeField] private GameObject shield;
 
-    private void Start()
+    private void Awake()
     {
         shield = GameObject.FindGameObjectWithTag("Shield");
     }

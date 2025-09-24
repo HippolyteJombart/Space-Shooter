@@ -12,9 +12,7 @@ public class AutoDisable : MonoBehaviour
     
     private IEnumerator Disable()
     {
-        Debug.Log("1");
         yield return new WaitForSeconds(lifetime);
-        Debug.Log("2");
         LaserManager.instance.UnPoolLaser(gameObject);
     }
 }

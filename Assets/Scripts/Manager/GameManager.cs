@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int pointToLife;
     public bool inPause = false;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject shield;
     [SerializeField] private GameObject gameScreen;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject dieScreen;
@@ -22,12 +23,14 @@ public class GameManager : MonoBehaviour
         if (instance == null) { instance = this; }
         else { Destroy(gameObject); }
     }
+    
     private void Start()
     {
         dieScreen.SetActive(false);
         pauseScreen.SetActive(false);
         gameScreen.SetActive(true);
     }
+    
     public void AddPoint(int i = 50)
     {
         point += i;
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
         }
         scoreTextInGame.text = "Score : " + point + "\n" + "Life : " + life;
     }
+    
     public void LoseLife()
     {
         life -= 1;
@@ -61,17 +65,20 @@ public class GameManager : MonoBehaviour
         int n = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(n + 1);
     }
+    
     public void RestartLevel()
     {
         Time.timeScale = 1;
         int n = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(n);
     }
+    
     public void MenuLevel()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
+    
     public void PauseGame()
     {
         scoreTextInPause.text = "Score : " + point;
@@ -80,6 +87,7 @@ public class GameManager : MonoBehaviour
         gameScreen.SetActive(false);
         pauseScreen.SetActive(true);
     }
+    
     public void UnPauseGame()
     {
         inPause = false;

@@ -2001,6 +2001,7 @@ MonoBehaviour:
   point: 0
   inPause: 0
   player: {fileID: 4450633393802324903}
+  shield: {fileID: 7047464170820769585}
   gameScreen: {fileID: 377789273}
   pauseScreen: {fileID: 2011791725}
   dieScreen: {fileID: 354898332}
@@ -24210,7 +24211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &8358621988636041512
 Rigidbody:
   m_ObjectHideFlags: 0
