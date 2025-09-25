@@ -30,6 +30,17 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         Shoot();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.instance.inPause)
+            {
+                GameManager.instance.UnPauseGame();
+            }
+            else
+            {
+                GameManager.instance.PauseGame();
+            }
+        }
     }
 
     private void Movement()
